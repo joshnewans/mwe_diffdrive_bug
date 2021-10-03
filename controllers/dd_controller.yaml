@@ -1,0 +1,43 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 30  # Hz
+    use_sim_time: true
+
+    # velocity_controller:
+    #   type: velocity_controllers/JointGroupVelocityController
+
+    test_controller:
+      type: diff_drive_controller/DiffDriveController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+# velocity_controller:
+#   ros__parameters:
+#     joints:
+#       - base_to_left_wheel
+#       - base_to_right_wheel
+#     interface_name: position
+
+test_controller:
+  ros__parameters:
+    use_sim_time: true
+    left_wheel_names: ['base_to_left_wheel']
+    right_wheel_names: ['base_to_right_wheel']
+    # wheels_per_side: 1
+    wheel_separation: 1.25
+    wheel_radius: 0.3
+    base_frame_id: base_link
+    publish_rate: 30
+    update_rate: 30  # Hz
+#     # joints:
+#     #   - base_to_left_wheel
+#     #   - base_to_right_wheel
+#     # interface_name: velocity
+
+joint_state_broadcaster:
+  ros__parameters:
+    use_sim_time: true
+    publish_rate: 30
+    update_rate: 30  # Hz
+
